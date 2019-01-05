@@ -4,7 +4,7 @@ image_config: &image_config
   # either as project-specific environment variables
   # or as resources in your organization's org-global Context
 
-  IMAGE_NAME: ruby-2.4.4-node-10
+  IMAGE_NAME: ruby-node
 
   IMAGE_TAG: 2.4.4-10
 
@@ -54,7 +54,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/ruby-2.4.4-node-10:2.4.4-10
+      - image: $DOCKER_USERNAME/ruby-node:2.4.4-10
         environment:
           <<: *image_config
 
@@ -85,9 +85,7 @@ workflows:
   dockerfile_wizard:
     jobs:
       - build:
-          context: org-global
 
       - test_image:
-          context: org-global
           requires:
             - build
