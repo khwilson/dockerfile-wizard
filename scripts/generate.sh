@@ -133,4 +133,4 @@ RUN apt-get -y install libgconf-2-4 \
   && chmod +x /usr/local/bin/chromedriver"
 fi
 
-echo "gem install bundler"
+echo "RUN gem install bundler"
